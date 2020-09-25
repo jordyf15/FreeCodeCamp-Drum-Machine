@@ -1,8 +1,8 @@
 import React from 'react';
-class DrumC extends React.Component{
+class Drum extends React.Component{
     state={
-        soundDesc:'Closed HH',
-        soundClip: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3',
+        soundDesc: this.props.soundDescHeater,
+        soundClip: this.props.soundClipHeater,
         colorClicked: "gray",
         moveClicked: "0px",
         shadowClicked: "black 3px 3px 5px"
@@ -15,11 +15,11 @@ class DrumC extends React.Component{
     }
     changeClick=()=>{
         if(this.props.currentPower==="on"){
-            document.getElementById('C').play();
+            document.getElementById(this.props.drumId).play();
             if(this.props.currentBank==="heater"){
-                this.props.changeDisplay("Closed HH");
+                this.props.changeDisplay(this.props.soundDescHeater);
             }else{
-                this.props.changeDisplay("Snare");
+                this.props.changeDisplay(this.props.soundDescPiano);
             }
             this.setState({
                 colorClicked: "orange",
@@ -37,8 +37,10 @@ class DrumC extends React.Component{
         })
     }
     keyDownFunc=(e)=>{
+        console.log(this.state.soundClip)
+        console.log(this.props.drumId)
         let key = e.keyCode;
-            if(key === 67 || key === 99){
+            if(key === this.props.keyLowerCase || key === this.props.keyUpperCase){
                 this.changeClick();
                 if(this.props.currentPower==="on"){
                     this.setState({
@@ -49,30 +51,31 @@ class DrumC extends React.Component{
                     setTimeout(this.returnClick,100);
                 }
             }
-        }
+    }
     componentWillReceiveProps(nextProps){
         if(this.props.currentBank!==nextProps.currentBank){
-        if(nextProps.currentBank==='heater'){
-            this.setState({
-                soundDesc: 'Closed HH',
-                soundClip: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
-            })
-        }else{
-            this.setState({
-                soundDesc: 'Snare',
-                soundClip: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3'
-            })
+            if(nextProps.currentBank==='heater'){
+                this.setState({
+                    soundDesc: this.props.soundDescHeater,
+                    soundClip: this.props.soundClipHeater
+                })
+            }else{
+                this.setState({
+                    soundDesc: this.props.soundDescPiano,
+                    soundClip: this.props.soundClipPiano
+                })
+            }
         }
     }
-     }
     render(){
         return(
             <div className="drums">
-                <button className="drum-pad" style={{backgroundColor: this.state.colorClicked, marginTop: this.state.moveClicked, boxShadow: this.state.shadowClicked}} id={this.state.soundDesc}onClick={this.changeClick}>C
-                <audio className="clip" id="C" src={this.state.soundClip}></audio>
+                <button className="drum-pad" style={{backgroundColor: this.state.colorClicked, marginTop: this.state.moveClicked, boxShadow: this.state.shadowClicked}} id={this.state.soundDesc}onClick={this.changeClick}>
+                    {this.props.drumId}
+                <audio className="clip" id={this.props.drumId} src={this.state.soundClip}></audio>
                 </button>
             </div>
         );
     }
 }
-export default DrumC;
+export default Drum;

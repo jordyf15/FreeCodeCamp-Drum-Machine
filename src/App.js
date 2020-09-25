@@ -1,14 +1,6 @@
 import React from 'react';
 import './App.css';
-import DrumQ from './DrumQ';
-import DrumW from './DrumW';
-import DrumE from './DrumE';
-import DrumA from './DrumA';
-import DrumS from './DrumS';
-import DrumD from './DrumD';
-import DrumZ from './DrumZ';
-import DrumX from './DrumX';
-import DrumC from './DrumC';
+import Drum from './Drum';
 class App extends React.Component{
   state={
     power: "on",
@@ -83,15 +75,49 @@ class App extends React.Component{
         </div>
       <div id="drum-control-container">
         <div id="drums-container">
-        <DrumQ currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay}/>
-        <DrumW currentPower ={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay}/>
-        <DrumE currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay}/>
-        <DrumA currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay}/>
-        <DrumS currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay}/>
-        <DrumD currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay}/>
-        <DrumZ currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay}/>
-        <DrumX currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay}/>
-        <DrumC currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay}/>
+       {/* DrumQ */}
+        <Drum currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay} 
+        soundDescHeater="Heater 1" soundDescPiano="Chord 1" soundClipHeater="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" 
+        soundClipPiano="https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3" drumId="Q" keyLowerCase={113} keyUpperCase={81}/>
+
+        {/*Drum W*/ }
+        <Drum currentPower ={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay} soundDescHeater="Heater 2" 
+        soundDescPiano="Chord 2" soundClipHeater="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
+        soundClipPiano="https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3" drumId="W" keyLowerCase={119} keyUpperCase={87}/>
+
+       {/* Drum E*/}
+        <Drum currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay} soundDescHeater="Heater 3" soundDescPiano="Chord 3"
+        soundClipHeater="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3" soundClipPiano="https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3"
+        drumId="E" keyLowerCase={101} keyUpperCase={69}/>
+
+        {/*DrumA*/}
+        <Drum currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay} soundDescHeater="Heater 4" soundDescPiano="Shaker"
+        soundClipHeater="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3" soundClipPiano="https://s3.amazonaws.com/freecodecamp/drums/Give_us_a_light.mp3"
+        drumId="A" keyLowerCase={97} keyUpperCase={65}/>
+
+       {/*DrumS*/}
+        <Drum currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay} soundDescHeater="Clap" soundDescPiano="Open HH"
+        soundClipHeater="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3" soundClipPiano="https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3"
+        drumId="S" keyLowerCase={115} keyUpperCase={83}/>
+        {/*DrumD*/}
+        <Drum currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay} soundDescHeater="Open HH" soundDescPiano="Closed HH"
+        soundClipHeater="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3" soundClipPiano="https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3"
+        drumId="D" keyLowerCase={100} keyUpperCase={68}/>
+        {/*DrumZ*/}
+        <Drum currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay} soundDescHeater="Kick\'n Hat" soundDescPiano="Punchy Kick"
+        soundClipHeater="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3" soundClipPiano="https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"
+        drumId="Z" keyLowerCase={122} keyUpperCase={90}/>
+
+        {/*DrumX*/}
+        <Drum currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay} soundDescHeater="Kick" soundDescPiano="Side Stick"
+        soundClipHeater="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3" soundClipPiano="https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3"
+        drumId='X' keyLowerCase={120} keyUpperCase={88}/>
+
+       {/*DrumC*/}
+        <Drum currentPower={this.state.power} currentBank={this.state.bank} changeDisplay={this.changeDisplay} soundDescHeater="Closed HH" soundDescPiano="Snare"
+        soundClipHeater="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3" soundClipPiano="https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3"
+        drumId="C" keyLowerCase={99} keyUpperCase={67}/>
+
         </div>
 
         <div id="controls-container">
