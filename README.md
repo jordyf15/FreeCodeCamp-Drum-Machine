@@ -57,7 +57,7 @@ The App component will render the following elements:
 8. The volume range that will trigger the changeVolume function when altered by the user.
 
 ### Drum components
-There are 9 Drum components in the drummachine which hold the same state, function, and renders but with different values.
+There are 9 Drum components in the drummachine which hold the same state, function, and renders but with different values. For the drums we can make 1 drum component that can be reused for all 9 drum components but with different properties that will be used for their states, functions and renders.
 
 #### States
 All of the Drum components have each 5 states:
